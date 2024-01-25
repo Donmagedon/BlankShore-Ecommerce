@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<main>
+    <aside>
+        <section class="profile-user">
+        <h3>Luiscar</h3>
+        </section>
+        <section  class="profile-details">
+                <ul>
+                    <a [routerLink]="['',{outlets:{display:'address'}}]" href="">
+                        <li>Addresses</li>
+                    </a><a [routerLink]="['',{outlets:{display:'personal'}}]" href="">
+                        <li>Personal Details</li>
+                    </a><a href="">
+                        <li>Surprises</li>
+                    </a>
+                </ul>
+        </section>
+     </aside>
+     <section class="display">
+        <router-outlet name="display"></router-outlet>
+        </section>
+</main>
+<app-footer></app-footer>

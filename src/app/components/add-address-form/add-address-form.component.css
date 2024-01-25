@@ -1,0 +1,101 @@
+
+
+fieldset{
+    border: transparent;
+    margin: 1rem 0;
+}
+.order-details{
+    flex: 2 2;
+}
+
+.order-details form{
+    padding: 2rem 0;
+}
+.order-details form div h2{
+    padding-bottom: 2rem;
+}
+.order-details .details-container{
+    display: flex;
+    gap: 1rem;
+}
+.order-details .details-container label{
+    font-size: .9rem;
+}
+.order-details .details-container input, select#country{
+    padding: .5rem;
+    font-size: 1.2rem;
+    border: 1px solid var(--font-fadded-hard);
+    width: 100%;
+}
+
+input.ng-valid.ng-touched , select.ng-valid.ng-touched{
+    background-color: var(--positive);
+}
+input.ng-invalid.ng-touched , select.ng-invalid.ng-touched{
+    background-color: pink;
+} 
+.address1-order-details{
+    flex: 7 7;
+}
+.address2-order-details{
+    flex: 3 3;
+}
+
+.location-order-details{
+    flex: 1 1;
+}
+.button-details-container{
+margin: 3rem 0;
+}
+.button-details-container button{
+    padding: .8rem 3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.save-order-details{
+    background-color: var(--font);
+    color: white;
+    border-radius: .025rem;
+    border: 1px solid var(--font);
+}
+.save-order-details:hover{
+    opacity: .7;
+}
+.cancel-order-details{
+    background-color: transparent;
+    border: transparent;
+}
+
+.form-error{
+    position: absolute;
+}
+@media screen and (max-width:900px) {
+    .main{
+        padding: 1rem;
+    }
+
+}
+@media screen and (max-width:600px) {
+    .main{
+        flex-direction: column-reverse;
+    }
+    .button-details-container{
+        display: flex;
+        flex-direction: column;
+         align-items: center;
+         justify-content: center;
+    }
+    .details-container{
+        flex-direction: column;
+        min-width: 3rem;
+    
+    }
+    .details-order-details{
+        width:15rem ;
+    }
+
+
+}

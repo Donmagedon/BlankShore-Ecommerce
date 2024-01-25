@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<app-filter-panel 
+[routeName]="routeName"
+(emitfilteredItems)="getFilteredItems($event)"
+[defaultItems]="defaultItems"></app-filter-panel>
+<app-shop-items>
+    
+    <app-item
+    *ngFor="let item of itemsOnScreen; index as x" 
+    [itemName]="item.name" [itemPrice]="item.price" 
+    [itemImageData]="item.img_path">
+    >
+    </app-item>
+</app-shop-items>
+

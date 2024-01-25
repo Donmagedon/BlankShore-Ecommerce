@@ -1,0 +1,61 @@
+header{
+    display: flex;
+    padding:0 2rem  ;
+    width: 100%;
+    min-height: 80vh;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+header p{
+    font-size: 1.5rem;
+    color: var(--font);
+}
+header .welcome_msg{
+    display: flex;
+    color: var(--font);
+    flex-direction: column;
+    width:100%;
+    padding: 2rem;
+    
+    font-family: 'Syncopate', sans-serif;
+    background-color: var(--main);
+}
+header .welcome_msg h1{
+    font-size: 3.6rem;
+    line-height: 1.6em;
+}
+
+
+header .season_img{
+    background-image: url("../../../assets/media/pictures/Model.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 90vh;
+    width: 100%;
+}
+header .call_to_action_btn{
+padding: 1rem  2rem;
+width: 13rem;
+border: none;
+font-size: 1em;
+color: white;
+background-color: var(--font);
+margin: 2.8rem 0;
+}
+
+@media (max-width:1000px) {
+    header{
+        flex-direction: column;
+    }
+    .welcome_msg{
+        align-items: center;
+        justify-content: center;
+    }
+
+    header .welcome_msg h1{
+        font-size: 6vw;
+        text-align: center;
+    }
+}

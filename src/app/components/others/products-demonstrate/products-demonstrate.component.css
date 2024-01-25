@@ -1,0 +1,22 @@
+.featured_item_container{
+    background-color: transparent;
+    list-style: none;
+}
+
+.featured_item_container a{ 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--font);
+}
+.featured_item_image{
+    /* background-image: url("../../../assets/media/pictures/Test.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
+    background-color: white;
+    height: 25rem;
+    width: 18rem;
+    
+}

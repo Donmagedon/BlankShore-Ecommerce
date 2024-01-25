@@ -1,0 +1,50 @@
+article{
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 0 .09rem;
+}
+main ul li{
+    list-style: none;
+    font-size: 1.2rem;
+    margin: .5rem 0;
+}
+main ul li span{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 .2rem;
+}
+.options-button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--font-fadded);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.options-menu{
+    position: absolute;
+    right: -100%;
+    box-shadow: 0 0 .09rem;
+
+}
+.options-menu button{
+    background-color: transparent;
+    border: none;
+}
+
+.options-menu button li{
+    padding:1rem 2rem;
+    list-style: none;
+    color: var(--font);
+    transition: all 150ms ease-in;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+i{
+    width: 1rem;
+}
+.options-menu button:hover, .options-menu button:focus{
+    background-color: var(--font-fadded-hard);
+    outline: none;
+}

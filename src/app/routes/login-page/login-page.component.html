@@ -1,0 +1,33 @@
+<main>
+    <aside class="login-image"><div></div></aside>
+    <header class="login-box">
+        <h1>Hey Beautiful!<br><span>Login Please!</span></h1>
+        <form [formGroup]="loginForm" (ngSubmit)="senInfo()" action="">
+            <div *ngIf="failedAuth" class="info-error">Account information is incorrect, please,verify.</div>
+            <div class="input-box">
+            <div  *ngIf="username"class="input-error">This field is required!</div>
+            <label for="username">Username</label> 
+            <input
+            formControlName="username"
+             required
+             type="text"
+               name="username" 
+               id="username" 
+               placeholder="type your username">
+            </div>
+            
+            <div class="input-box">
+                <div *ngIf="password" class="input-error">This field is required!</div>
+                <label for="password">Password</label>
+                <input
+                formControlName="password"
+                required
+                 type="password" 
+                 name="password" 
+                 id="password" 
+                 placeholder="type your password">
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </header>
+</main>

@@ -1,0 +1,57 @@
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--font);
+    position: absolute;
+    bottom: 10%;
+    display: block;
+    transition: all 250ms ease-in-out;
+}
+header label{ 
+    cursor: pointer;
+}
+.price-filter{
+    flex: 1 1;
+}
+.responsive-price-filter input,.price-filter form div input{
+}
+.category-filter{
+    flex: 3 3;
+}
+.responsive-category-filter fieldset, .category-filter fieldset{
+    margin: 1rem 0; 
+    padding: 1rem;
+}
+.responsive-view{
+    display: none;
+    padding: .5rem 1.5rem;
+}
+header.active{
+    color: white;
+    background-color: var(--font);
+}
+
+@media screen and (max-width:750px) {
+    .normal-view{
+        display: none;
+    }
+    .responsive-view{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    header{
+        z-index: 2;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: unset;
+        padding: 1rem;
+        border-radius: .05rem;
+    }
+
+}

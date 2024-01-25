@@ -1,0 +1,164 @@
+<header [class]="toggled ? 'active' : 'notActive' " >
+    <div class="normal-view">
+        <div></div>
+        <form (change)="getActiveFilters($event)" [formGroup]="filters" action="">
+            <div class="price-filter">
+        
+                <div>
+                    <label for="low-price">Less than 20$</label>
+                    <input
+                    formControlName="price"
+                     value="lt,20"
+                     data-price="20" type="radio" name="price" id="low-price">
+                </div>
+                <div>
+                <label for="mid-price">20$ to 50$</label>
+                <input
+                formControlName="price"
+                value="bt,20/50"  
+                data-price1="20" data-price2="50" type="radio" name="price" id="mid-price">
+                </div>
+                <div>
+                <label for="high-price">Above $50</label>
+                <input 
+                formControlName="price"
+                value="gt,50"
+                data-price="50" type="radio" name="price" id="high-price">
+                </div>
+                
+        </div>
+        <div class="category-filter">
+            <fieldset>
+                <legend>Season</legend>
+                <div class="category-season-filter">
+                        <div>
+                            <input name="season" id="spring" type="radio"
+                            formControlName="season"
+                            value="Spring"  
+                            >
+                            
+                            <label for="spring">Spring</label>
+                        </div>
+                        <div>
+                            <input name="season" id="summer" type="radio"
+                            formControlName="season"
+                            value="Summer"  
+                            >
+                            <label for="summer">Summer</label>
+                        </div>
+                        <div>
+                            <input name="season" id="fall" type="radio"
+                            formControlName="season"
+                            value="Fall"  
+                            >
+                            <label for="fall">Fall</label>
+                        </div>
+                        <div>
+                            <input name="season" id="winter" type="radio"
+                            formControlName="season"
+                            value="Winter"  
+                            >
+                            <label for="winter">Winter</label>
+                        </div>
+                </div>
+                
+            </fieldset>
+    
+                <fieldset>
+                    <legend>Fit</legend>
+                    <div class="category-fit-filter">
+                            <div>
+                                <input type="radio" name="fit" id="normal"
+                                formControlName="fit"
+                                value="normal"  
+                                >
+                                <label for="normal">normal</label>
+            
+                            </div>
+                            <div>
+                                <input type="radio" name="fit" id="slim"
+                                formControlName="fit"
+                                value="slim" 
+                                >
+                                <label for="slim">slim</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="fit" id="loose"
+                                formControlName="fit"
+                                value="loose"  
+                                >
+                                <label for="loose">loose</label>
+                            </div>              
+                    </div>
+                </fieldset>       
+        </div>
+        </form>
+   </div>
+    <div  (click)="toggle()"class="responsive-view">
+        <div >Filter</div><i class="fa-solid fa-filter"></i>
+    </div>
+    <div *ngIf="toggled" class="toggle-view">
+            <div class="responsive-price-filter">
+                
+                <div>
+                    <label for="low-price">Less than 20$</label>
+                    <input type="radio" name="price" id="low-price">
+                </div>
+                <div>
+                    <label for="mid-price">20$ to 50$</label>
+                    <input type="radio" name="price" id="mid-price">
+                </div>
+                <div>
+                    <label for="high-price">Above $50</label>
+                    <input type="radio" name="price" id="high-price">
+                </div>
+            </div>
+            <div class="responsive-category-filter">
+                <form action="" >
+                    <fieldset>
+                        <legend>Season</legend>
+                        <div class="category-season-filter">
+                                <div>
+                                    <input name="season" id="spring" type="radio">
+                                    <label for="spring">Spring</label>
+                                </div>
+                                <div>
+                                    <input name="season" id="summer" type="radio">
+                                    <label for="summer">Summer</label>
+                                </div>
+                                <div>
+                                    <input name="season" id="fall" type="radio">
+                                    <label for="fall">Fall</label>
+                                </div>
+                                <div>
+                                    <input name="season" id="winter" type="radio">
+                                    <label for="winter">Winter</label>
+                                </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <form action="" >
+                    <fieldset>
+                        <legend>Fit</legend>
+                        <div class="category-fit-filter">
+                                <div>
+                                    <input type="radio" name="fit" id="normal">
+                                    <label for="normal">normal</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="fit" id="slim">
+                                    <label for="slim">slim</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="fit" id="loose">
+                                    <label for="loose">loose</label>
+                                </div>              
+                        </div>
+                    </fieldset>
+                </form>
+                    
+            </div>
+            
+        </div>
+
+</header>

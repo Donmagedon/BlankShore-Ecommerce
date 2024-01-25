@@ -1,0 +1,95 @@
+main,form,.input-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+main{
+    padding: 2rem;
+}
+form{
+    padding:3rem;
+    flex-direction: column;
+    position: relative;
+}
+.login-image{
+    flex: 1 1;
+    width: 10rem;
+    min-height: 80dvh;
+    background-image: url("../../../assets/media/pictures/peaceful-relaxed-happy-girl-art-of-wellness-and-well-being-vector.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: .35rem;
+    
+    
+}
+
+.login-box{
+    flex: 1 1;
+}
+
+.login-box h1{ 
+    font-size: 2.5rem;
+    color: var(--font);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+
+}
+.login-box h1 span{
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.5rem;
+}
+.input-box{
+    position: relative;
+    width: 60%;
+    flex-direction: column;
+}
+.input-box label{
+    align-self: start;
+    font-size: 1rem;
+    font-weight: 500;
+   
+}
+.input-box input {
+    font-size: 1rem;
+    padding: .4rem;
+    width: 100%;
+    margin: 1rem 0;
+    border: .15rem solid var(--font);
+    border-radius: .035rem;
+    
+}
+.input-box input.ng-invalid.ng-touched{
+    background-color: pink;
+}
+
+.input-error{
+    color: var(--error);
+    position: absolute;
+    display: inline-block;
+    font-size: 1.4dvw;    
+    right: 0;
+    top: 0;
+}
+.info-error{
+    color: var(--error);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+.login-button{
+    padding: .6rem 2rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    background-color: var(--font);
+    color: white;
+    border: 1px solid var(--font);
+    cursor: pointer;
+    transition: all 150ms ease-in;
+}
+.login-button:focus,.login-button:hover{
+    opacity: .7;
+}

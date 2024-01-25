@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+<div *ngIf="itemInfo$ | async as itemInfo ">
+    <section class="item-container">
+        <div   [ngStyle]="{'background-image':'url(data:image/png;base64,'+itemInfo.img_path +')'}" 
+        class="itemImage" class="item-image"
+       >
+            <div   [ngStyle]="{'background-image':'url(data:image/png;base64,'+itemInfo.img_path +')'}" 
+           class="responsive-item-image"></div>
+        </div>
+        <div class="item-controls">
+            <div class="description-item-controls">
+                <h2>{{itemInfo.name }}</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, consectetur nemo unde eos placeat molestiae repudiandae sit impedit aliquam voluptates?</p>
+            </div>
+            <div class="price-item-controls">
+                <label for="item-price">PRICE</label>
+                <p class="item-price">{{itemInfo.price}}</p>
+            </div>
+    
+            <div class="final-item-controls">
+                <input type="number" min="1" value="1" name="quantity" id="">
+                <a href="/order/{{routeName}}/{{identifier.identifier}}"><button class="item-buy-now">Buy It Now</button></a>
+                
+                <button class="item-add-cart">Add to Car</button>
+            </div>
+            <button (click)="moreDetails()" class="item-other-details">More details<i class="fa-solid fa-angle-{{moreDetailsArrow}}"></i></button>
+        </div>
+    </section>
+    <section *ngIf="moreDetailsState" class="other-details-container">
+        <div class="detail-other-details">
+            <h4>Category:</h4>
+            <p>{{itemInfo.category}}</p>
+        </div>
+        <div class="detail-other-details">
+            <h4>Manufacturer</h4>
+            <p>{{itemInfo.manufacturer}}</p>
+        </div>
+        <div class="detail-other-details">
+            <h4>Weather compatibility:</h4>
+            <p>{{itemInfo.season_compatibility}}</p>
+        </div>
+        <div  *ngFor="let details of itemInfo.type_details | keyvalue" class="detail-other-details">
+            <h4>{{details.key}}</h4>
+            <p>{{details.value}}</p>
+        </div>
+    </section>
+    <section class="feedback-section-container">
+        <div class="general-feedback">
+            <div class="feedback-rating-container">
+                <h4>Overall rating</h4>
+                <div><span class="feedback-rating-stars"></span><span class="feedback-rating-amount">4.5</span></div>
+            </div>
+            <div class="feedback-action-container"><button>Give US Feedback</button></div>
+            <div class="feedback-callToAction"><div><i class="fa-regular fa-message fa-xl"></i></div><p><span>You Tell Us</span><br>Have you used this product?Tell us what you think!</p></div>
+        </div>
+        <div class="all-feedback-container">
+            <div class="feedback-container">
+                <div class="feedback-highlight">
+                    <h5 class="text-feedback-highlight">Excellent</h5>
+                    <span></span>
+                    <div class="user-feedback-highlight">Michael Jordan</div>
+                    <div class="timestamp-feedback">November 30 2023</div>
+                </div>
+                <div class="feedback-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, distinctio. Eligendi mollitia ad adipisci nostrum nobis labore dolor! Voluptatum ab quod dicta quaerat reprehenderit eaque soluta, esse maxime quo. Vel.</div>
+            </div>
+            <div class="feedback-container">
+                <div class="feedback-highlight">
+                    <h5 class="text-feedback-highlight">Excellent</h5>
+                    <span></span>
+                    <div class="user-feedback-highlight">Michael Jordan</div>
+                    <div class="timestamp-feedback">November 30 2023</div>
+                </div>
+                <div class="feedback-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, distinctio. Eligendi mollitia ad adipisci nostrum nobis labore dolor! Voluptatum ab quod dicta quaerat reprehenderit eaque soluta, esse maxime quo. Vel.</div>
+            </div>
+            <div class="feedback-container">
+                <div class="feedback-highlight">
+                    <h5 class="text-feedback-highlight">Excellent</h5>
+                    <span></span>
+                    <div class="user-feedback-highlight">Michael Jordan</div>
+                    <div class="timestamp-feedback">November 30 2023</div>
+                </div>
+                <div class="feedback-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, distinctio. Eligendi mollitia ad adipisci nostrum nobis labore dolor! Voluptatum ab quod dicta quaerat reprehenderit eaque soluta, esse maxime quo. Vel.</div>
+            </div>
+    
+        </div>
+    </section>
+</div>
+
+<app-footer></app-footer>

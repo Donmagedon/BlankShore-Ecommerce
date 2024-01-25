@@ -1,0 +1,106 @@
+.parent{
+    background-color: var(--secundary);
+}
+section main{
+    display: flex;
+    min-height: 100dvh;
+    padding: 5rem;
+    gap: 2rem;
+}
+.form_container{
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form_container h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.info_container{
+    display: flex;
+    border: .15rem solid var(--font);
+    padding: 3rem;
+    gap: 2rem;
+}
+.input_box{
+    margin: 1rem 0;
+}
+.info_container form input{
+    background-color:transparent;
+    border: none;
+    border-bottom: .15rem solid var(--font);
+    width: 70%;
+    padding: .2rem;
+    font-size: 1.1rem;
+}
+.info_container form textarea{
+    background-color: transparent;
+    border: .15rem solid var(--font);
+    padding: .2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+.info_container form input:focus{
+    outline: none;
+}
+.info_container form label{
+    font-weight: 500;
+}
+
+#send_contact{
+    margin: 2rem 0;
+    padding: .6rem 3rem;
+    font-weight: bold;
+    background-color: var(--font);
+    color: white;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    transition: 150ms all ease-in;
+}
+#send_contact:hover{
+    opacity: .90;
+}
+#send_contact:focus{
+   outline:.2rem solid white;
+}
+aside{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+aside div{
+    margin: .6rem;
+}
+.contact_links{
+    display: flex ;
+    width: 50%;
+    justify-content: space-between;
+
+}
+.contact_links span a{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color:var(--font);
+    transition: 150ms all ease-in;
+}
+.contact_links span a:hover{
+    opacity: .9;
+}
+.cover_img{
+    flex: 1 1;
+    background-image: url("../../../assets/media/pictures/BlogCover.jpg");
+    background-position: 5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+.input_error{
+    position: absolute;
+    color: var(--error) ;
+}
+@media screen and (max-width:1000px) {
+    
+}

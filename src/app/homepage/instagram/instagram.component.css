@@ -1,0 +1,70 @@
+ .instagram_container{
+    width: 100%;
+    min-height: 100dvh;
+ }
+
+.instagram_container a{
+    display: flex;
+    min-height: 100dvh;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--font);
+
+}
+.instagram_container .pics{
+    height: 10rem;
+    width: 10rem;
+    background-position: center;
+    background-size: cover;
+}
+.instagram_container .pics_lg{
+    height: 15rem;
+    transform: translateY(-20%);
+}
+.instagram_container .pics_sm{
+    transform: translateY(40%) translateX(-40%);
+}
+
+.collection{
+    min-height: 90dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1;
+}
+.middle_collection{
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.middle_collection h2{
+    margin-top: 8rem;
+    font-size: 3.2rem;
+    font-family: 'Syncopate', sans-serif;
+
+}
+.middle_collection .pics_sm{
+    margin-bottom: 2rem;
+    transform: translateY(0) translateX(0);
+}
+#pic1{
+    background-image: url("../../../assets/media/pictures/Peek-Inside-a-Gorgeous-1920s-Era-Apartment-That_s-Teeming-With-Vintage-Charm.jpg");
+
+}
+#pic2{
+    background-image: url("../..//../assets/media/pictures/Pata-de-Elefante-Table-Lamp-S-w_Turned-Parota-Wood_-Fluted-Linen-Shade_-Made-MX.jpg");
+}
+#pic3{
+    background-image: url("../../..//assets/media/pictures/John-Richard-Collection-Quartz-9-Light-Chandelier.jpg");
+}
+
+#pic5{
+    background-image: url("../../../assets/media/pictures/Bougie-parfumée-pour-l_hiver-_-notre-shopping.jpg");
+}
+
+@media (max-width:800px) {
+    .instagram_container a{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,9 @@
+<section>
+    <div class="imageContainer">
+        <a routerLink="./{{itemName}}" routerLinkActive="active"  [ngStyle]="{'background-image':'url(data:image/png;base64,'+itemImageData+')'}" class="itemImage" href=""></a>
+    </div>
+    <div class="detailsContainer">
+        <a routerLink="./{{itemName}}" routerLinkActive="active" class="itemTitle" href="">{{itemName}}</a>
+        <p class="itemPrice">${{itemPrice}}</p>
+    </div>    
+</section>

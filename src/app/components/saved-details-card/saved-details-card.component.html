@@ -1,0 +1,18 @@
+<article *ngIf="!editing">
+    <main>
+        <ul>
+            <li class="first-name"><span>First Name:</span>Luiscar</li>
+            <li class="last-name"><span>Last Name:</span>Castro</li>
+            <li class="username"><span>Username:</span>donmagedon</li>
+            <li class="favorite-song"><span>Favorite Song:</span>Butterflies and Hurricanes</li>
+        </ul>
+    </main>
+    <button  (mouseleave)="hideOptions()" (click)="display()" class="options-button"><i class="fa-solid fa-ellipsis-vertical"></i>
+        <ul *ngIf="optionsActive" class="options-menu">
+            <button (click)="edit()"><li>Edit</li></button>
+        </ul>
+    </button>
+</article>
+<div *ngIf="editing">
+    <app-add-personal-details-form></app-add-personal-details-form>
+</div>

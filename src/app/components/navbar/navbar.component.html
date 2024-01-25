@@ -1,0 +1,40 @@
+<nav class="main_navbar">
+<ul class="nav_pages">
+    <li><a href="">Home</a></li>
+    <!-- <li (mouseenter)="showLinks('pages')" (mouseleave)="hideLinks('pages')"><a href="">Pages <i class="fa-solid fa-chevron-down"></i></a>
+     <ul class="showLinks" *ngIf="pagesActive">
+        <li *ngFor="let links of pagesLinks; index as x"><a routerLinkActive="active" routerLink="{{links.link}}">{{links.title}}</a></li>
+     </ul>
+    </li> -->
+
+    <li (mouseenter)="showLinks('shop',0)" (mouseleave)="hideLinks('shop')"><a href="">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="showLinks" *ngIf="expandableRoutes[0].reference">
+            <ng-container  *ngFor="let links of shopLinks;let first= first; index as x">
+                    <li (mouseenter)="showLinks('clothing',x)" (mouseleave)="hideLinks('clothing')">
+                        <a routerLinkActive="active" routerLink="{{links.link}}">{{links.title}}
+                        <div class="showLinks deep" *ngIf="expandableRoutes[1].reference && x == 0">
+                            <li *ngFor="let links of shopLinks[0].deepLinks"><a routerLink="{{links.link}}" routerLinkActive="active">{{links.title}}</a></li>
+                         </div>
+                         <i *ngIf="x === 0" class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ng-container>
+           
+        </div></li>
+    <li><a href="" routerLink="/blog"  routerLinkActive="active">Blog</a></li>
+    <li><a href="" routerLink="/contact" routerLinkActive="active">Contact</a></li>
+</ul>
+<span class="logo"> </span>
+<menu class="nav_menu">
+    <li><a *ngIf="user | async as user; else guest" href="">{{user.username}}</a><ng-template #guest> <a routerLink="/login" routerLinkActive="active">Log In</a></ng-template></li>
+    <li><a href="">Shops</a></li>
+
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <div class="shopping_cart">
+        <i class="fa-solid fa-cart-shopping fa-xl"></i>
+        
+        
+    </div>
+    
+</menu>
+</nav>

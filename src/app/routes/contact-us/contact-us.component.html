@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<section class="parent" >
+    <main>
+        <section class="cover_img"></section>
+        <header class="form_container">
+            <h2>Contact Us</h2>
+            <div class="info_container">
+                 <form action="" method="post" [formGroup]="contactRequest">
+                <div class="input_box">
+                    <label for="first_name">First Name</label>
+                    <br>
+                    <input
+                    class="text-thing"
+                    name="first_name"
+                    formControlName="firstName" 
+                    id="first_name" 
+                    type="text">
+                    <div *ngIf="firstName?.errors && firstName?.touched" class="input_error">This field is required!</div>
+                </div>
+                    
+                    
+                <div class="input_box">
+                    <label for="last_name">Last Name</label>
+                    <br>
+                    <input
+                    name="last_name"
+                    formControlName="lastName" 
+                    id="last_name" 
+                    type="text">
+                    <div *ngIf="lastName?.errors && lastName?.touched" class="input_error">This field is required!</div>
+                </div>
+                <div class="input_box">
+                    <label for="email">Email</label>
+                    <br>
+                    <input
+                     name="email"
+                     formControlName="email"
+                     id="email" 
+                     type="email"
+                     (change)="test()"
+                     >
+                     <div *ngIf="email?.errors?.['required'] && email?.touched" class="input_error">This field is required!</div>
+                     <div *ngIf="email?.errors?.['email']" class="input_error">Invalid email</div>
+
+                    </div>
+                    <div class="input_box">
+                        <label for="message_me">Message</label>
+                        <br>
+                      <textarea 
+                      name="message_me" 
+                      formControlName="message"
+                      id="message_me" 
+                      cols="30" rows="10">
+                        </textarea></div>
+
+                <button id="send_contact" type="submit">Send Your Details</button>
+            </form>
+             <aside>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Luiscarcastro333@gmail.com</p>
+                </div>
+                <div>
+                    <h3>Based in</h3>
+                    <p>Bogotá, D.C</p>
+                </div>
+                <div class="contact_links">
+                    <span><a href=""><i class="fa-brands fa-linkedin"></i></a></span>
+                    <span><a href=""><i class="fa-brands fa-facebook"></i></a></span>
+                    <span><a href=""><i class="fa-brands fa-x-twitter"></i></a></span>
+                </div>
+            </aside>
+            </div>
+        </header>
+    </main>
+</section>
+<app-footer></app-footer>
