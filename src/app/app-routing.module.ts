@@ -19,7 +19,7 @@ import { UserDetailsComponent } from './routes/user-details/user-details.compone
 import { ShoppingCartComponent } from './routes/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
-{  path:"",component:HomepageComponent
+{  path:"",component:HomepageComponent, pathMatch:'full'
 },{
   
   path:"clothing/Sweaters",component:ClothingComponent,data:{path:"Sweater"}
