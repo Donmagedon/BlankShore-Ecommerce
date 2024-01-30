@@ -1,8 +1,10 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { Routes } from 'src/app/models/RoutesNavBar';
 import { LoadUserInfoService } from 'src/app/Services/load-user-info.service';
 import { CurrentUser } from 'src/app/models/current-user';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { Items } from 'src/app/models/items';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -17,13 +19,26 @@ export class NavbarComponent implements OnInit{
   public expandableRoutes!: Array<Routes>
   public shopLinks!: Array<Routes>
   public pageLinks!: Array<Routes>
-  public what = false
-  public user!: Observable<CurrentUser>
-  constructor(private session: LoadUserInfoService ){}
+  public displayCartNumber! : number | string
+  @Input() itemsInCart!: number
+  public user!: string | null
+  constructor(private session: LoadUserInfoService , private auth : AuthenticationService){}
   loadUser(){
-    this.user = this.session.loadAttributes()
+    this.user =  this.session.isLoggedIn()
+     this.session.loadAttributes().pipe(catchError((err)=>{
+      if(err){
+        this.user = null
+        this.auth.logout()
 
+      }
+      throw err
+     }),map((info:any)=>{
+      this.itemsInCart = info.shopping_cart.length
+
+    })).subscribe()
+   
   }
+
   ngOnInit(): void {
     this.loadUser()
     this.expandableRoutes = [
@@ -65,21 +80,21 @@ export class NavbarComponent implements OnInit{
           reference:false,
           deepLinks:[
             {
-              link:"clothing/Jeans",
+              link:"/clothing/Jeans",
               title:"Jeans",
           },
           {
-            link:"clothing/Sweaters",
+            link:"/clothing/Sweaters",
             title:"Sweaters",
         },
         {
-          link:"clothing/Hats",
+          link:"/clothing/Hats",
           title:"Hats",
       }
       ]
       },
       {
-        link:"shoes",
+        link:"/shoes",
         title:"Shoes"
       }
     ]

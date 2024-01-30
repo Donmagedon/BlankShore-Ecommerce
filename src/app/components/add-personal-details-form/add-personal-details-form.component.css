@@ -44,3 +44,12 @@ form .input-box input{
 .submit-btn:hover ,.submit-btn:focus{
     opacity: .7;
 }
+input.ng-touched.ng-invalid{
+    background-color: pink;
+}
+input.ng-touched.ng-valid{
+    background-color: var(--positive);
+}
+.error{
+    color: var(--error);
+}

@@ -1,14 +1,13 @@
-<article *ngIf="!notRemoved">
-    <header>Calle 187$ ajjs</header>
-    <section>Bogota</section>
-    <section>Luiscar jejeje</section>
+<article *ngIf="currentUser$ | async as user">
+    <header>{{user.addresses[0].address}}&nbsp;{{user.addresses[0].address2}}</header>
+    <section>{{user.addresses[0].city}}</section>
+    <section>{{user.first_name}}&nbsp;{{user.last_name}}</section>
     <button (mouseleave)="hideOptions()" #options (click)="selectOptions()"><i class="fa-solid fa-ellipsis-vertical">
         <ul  *ngIf="optionsActive" class="options-container">
-            <li (click)="editAddress()">Edit</li>
+            <li  (click)="editAddress()">Edit</li>
             <li (click)="removeAddress()">Remove</li>
         </ul>
     </i>
 </button>
 </article>
-
-<div *ngIf="editing"><app-add-address-form></app-add-address-form></div>
+<router-outlet></router-outlet>

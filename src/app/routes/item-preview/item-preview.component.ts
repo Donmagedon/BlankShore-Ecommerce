@@ -1,8 +1,10 @@
 import { Component,OnInit } from '@angular/core';
 import { GetItemsService } from 'src/app/Services/get-items.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Items } from 'src/app/models/items';
 import { Observable } from 'rxjs';
+import { UpdateInfoService } from 'src/app/Services/update-info.service';
+import { LoadUserInfoService } from 'src/app/Services/load-user-info.service';
 
 @Component({
   selector: 'app-item-preview',
@@ -16,20 +18,22 @@ export class ItemPreviewComponent implements OnInit{
   public identifier!:any
   public itemInfo$!: Observable<Items>
   public itemAsynch!: Items
-
-  constructor(private getItems:GetItemsService,private routeService: ActivatedRoute ){
+  public addedToCart : boolean = false
+  constructor(private getItems:GetItemsService,private routeService: ActivatedRoute , private update : UpdateInfoService,private router:Router ){
 
   }
   getItemInfo(){
     this.itemInfo$ = this.getItems.getSingleItem(this.routeName,this.identifier.identifier)
-    
-
+    this.itemInfo$.subscribe((info)=>{
+      this.itemAsynch = info
+    })
 
   }
   ngOnInit(): void {
     this.routeService.data.subscribe((info)=>{
       this.routeName = info["path"]
     }
+    
   
     )
   this.routeService.params.subscribe((info)=>{
@@ -39,7 +43,11 @@ export class ItemPreviewComponent implements OnInit{
   
 
   }
-
+  addCart(){
+    this.addedToCart = true
+    this.update.addToChopin(this.itemAsynch).subscribe()
+    this.router.navigate(["cart"])
+  }
   moreDetails(){
     this.moreDetailsState = !this.moreDetailsState
     if(this.moreDetailsState){

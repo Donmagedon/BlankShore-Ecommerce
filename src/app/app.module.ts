@@ -35,6 +35,9 @@ import { SavedAddressCardComponent } from './components/saved-address-card/saved
 import { AddAddressFormComponent } from './components/add-address-form/add-address-form.component';
 import { AddPersonalDetailsFormComponent } from './components/add-personal-details-form/add-personal-details-form.component';
 import { SavedDetailsCardComponent } from './components/saved-details-card/saved-details-card.component';
+import { EditPersonalDetailsComponent } from './components/edit-personal-details/edit-personal-details.component';
+import { EditAddressComponent } from './components/edit-address/edit-address.component';
+import { ItemSummaryCardComponent } from './components/item-summary-card/item-summary-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +67,9 @@ import { SavedDetailsCardComponent } from './components/saved-details-card/saved
     AddAddressFormComponent,
     AddPersonalDetailsFormComponent,
     SavedDetailsCardComponent,
+    EditPersonalDetailsComponent,
+    EditAddressComponent,
+    ItemSummaryCardComponent,
 
   ],
   imports: [

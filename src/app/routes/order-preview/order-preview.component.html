@@ -1,5 +1,6 @@
 <section class="main">
-    <app-add-address-form></app-add-address-form>
+    <app-add-address-form *ngIf="!user"></app-add-address-form>
+    <app-saved-address-card *ngIf="user"></app-saved-address-card>
     <main>
         <section class="order-summary">
             <header>

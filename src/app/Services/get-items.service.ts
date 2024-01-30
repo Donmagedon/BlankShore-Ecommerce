@@ -21,5 +21,8 @@ export class GetItemsService {
   return this.http.get<Items>(`/items/${route}/${identifier}`,
 )
  }
+ loadCollection():Observable<Items[]>{
+  return this.http.get<Items[]>("/items/collection")
+ }
  
 }

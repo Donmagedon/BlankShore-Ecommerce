@@ -1,12 +1,14 @@
-<section class="popular_items_container" >
+<section  class="popular_items_container" >
     <h2>Popular Collection</h2>
     <ul>
-        <app-products-demonstrate></app-products-demonstrate>
-        <app-products-demonstrate></app-products-demonstrate>
-        <app-products-demonstrate></app-products-demonstrate>
-        <app-products-demonstrate></app-products-demonstrate>
-        <app-products-demonstrate></app-products-demonstrate>
-        <app-products-demonstrate></app-products-demonstrate>
+        <app-products-demonstrate  *ngFor="let item of collectionItems$ | async ; index as x"
+        [itemName]="item.name"
+        [itemImage]="item.img_path"
+        [itemPrice]="item.price"
+        [itemCat]="item.category"
+        [itemSub]="item.sub_category"
+
+        ></app-products-demonstrate>
 
     </ul>
 </section>

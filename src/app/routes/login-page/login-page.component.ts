@@ -4,6 +4,7 @@ import { catchError, map, pipe } from 'rxjs';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { RunningSessionService } from 'src/app/Services/running-session.service';
 import { Router } from '@angular/router';
+import { LoadUserInfoService } from 'src/app/Services/load-user-info.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -16,7 +17,7 @@ public password:boolean = false
 public failedAuth:boolean = false
 public succededAuth:boolean = false
   public loginForm!: FormGroup
-  constructor(private auth:AuthenticationService,private session:RunningSessionService, private router:Router){
+  constructor(private auth:AuthenticationService,private session:RunningSessionService, private router:Router,private loadSession:LoadUserInfoService){
     this.loginForm = new FormGroup({
     username:new FormControl(null,[Validators.required]),
     password: new FormControl(null,[Validators.required])
@@ -46,7 +47,11 @@ public succededAuth:boolean = false
         if(info.authToken){
           this.succededAuth = true
           this.failedAuth = false
-          this.router.navigate(["/"])
+          this.loadSession.loadAttributes().subscribe(()=>{
+            this.router.navigate(["/"])
+          })
+          
+          
         }
       })).subscribe()
   }

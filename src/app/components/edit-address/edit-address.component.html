@@ -1,0 +1,94 @@
+<main *ngIf="currentUser$ | async ">
+    <section class="order-details">
+        <form (change)="detectChanges()" action="" (ngSubmit)="submit()" [formGroup]="orderDetails">
+            <div><h2>Shipping address</h2></div>
+            <div class="details-order-details">
+                <!-- <fieldset class="details-container">
+                    <div class="personal-order-details">
+                        <label for="firstName">First name</label><br>
+                        <input 
+                        
+                        type="text" 
+                        name="firstName" 
+                        id="firstName"
+                        formControlName="firstName"
+                        
+                    
+                        >
+                        <div class="form-error" *ngIf="firstName?.errors && firstName?.touched || invalidForm" style="color: red;">This field is required!</div>
+                    </div>
+                    <div class="personal-order-details">
+                        <label for="lastName">Last Name</label><br>
+                        <input
+                         type="text" 
+                         name="lastName" 
+                         id="lastName"
+                         formControlName="lastName"
+                         >
+                        <div class="form-error" *ngIf="lastName?.errors && lastName?.touched || invalidForm" style="color: red;">This field is required!</div>
+                    </div>
+                </fieldset> -->
+                <fieldset class="details-container">
+                    <div class="address-order-details address1-order-details">
+                    <label for="address">Address</label><br>
+                    <input
+                     type="text" 
+                     name="address" 
+                     id="address"
+                     formControlName="address1"
+                     
+                     >
+                     <div class="form-error" *ngIf="address1?.errors && address1?.touched || invalidForm" style="color: red;">This field is required!</div>
+                    </div>
+                    <div class="address-order-details address2-order-details">
+                        <label for="address2">Apt/house</label><br>
+                    <input 
+                    type="text"
+                     name="address2" 
+                     id="address2"
+                     formControlName="address2"
+                     >
+                     <div class="form-error" *ngIf="address2?.errors && address2?.touched || invalidForm" style="color: red;">This field is required!</div>
+    
+                    </div>
+                </fieldset>
+                <fieldset class="details-container">
+                    <div class="location-order-details location1-order-details">
+                        <label for="city">City/state</label><br>
+                        <input 
+                        type="text"
+                        name="city" 
+                        id="city"
+                        formControlName="city"
+    
+                         >
+                         <div class="form-error" *ngIf="city?.errors && city?.touched || invalidForm" style="color: red;">This field is required!</div>
+                        </div>
+                    <div class="location-order-details location2-order-details">
+                        <label for="country">Country</label><br>
+                        <select
+                        formControlName="country" 
+                        name="country" 
+                         id="country">
+                            <option *ngFor="let country of formCountriesList" value="{{country}}">{{country}}</option>
+                        </select>
+                        <div class="form-error" *ngIf="country?.errors && country?.touched || invalidForm" style="color: red;">This field is required!</div>
+    
+                    </div>
+                </fieldset>
+                <fieldset class="details-container">
+                    <div class="postal-order-details">
+                        <label for="postal">Postal Code</label><br>
+                        <input type="text" id="postal" name="postal">
+                    </div>
+                </fieldset>
+                <div class="button-details-container">
+                    <button  class="save-order-details">Submit</button>
+                    <button (click)="cancel()" type="button" class="cancel-order-details">Cancel</button>
+                </div>
+            </div>
+    
+        </form>
+    </section>
+</main>
+

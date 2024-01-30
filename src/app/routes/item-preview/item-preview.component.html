@@ -21,7 +21,8 @@
                 <input type="number" min="1" value="1" name="quantity" id="">
                 <a href="/order/{{routeName}}/{{identifier.identifier}}"><button class="item-buy-now">Buy It Now</button></a>
                 
-                <button class="item-add-cart">Add to Car</button>
+                <button (click)="addCart()" *ngIf="!addedToCart" class="item-add-cart">Add to Car</button>
+                <button *ngIf="addedToCart" class="item-add-cart added">Added!</button>
             </div>
             <button (click)="moreDetails()" class="item-other-details">More details<i class="fa-solid fa-angle-{{moreDetailsArrow}}"></i></button>
         </div>
@@ -85,5 +86,4 @@
         </div>
     </section>
 </div>
-
 <app-footer></app-footer>

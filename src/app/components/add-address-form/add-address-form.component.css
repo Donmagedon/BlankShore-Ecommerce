@@ -72,6 +72,9 @@ margin: 3rem 0;
 .form-error{
     position: absolute;
 }
+.error{
+    color: var(error);
+}
 @media screen and (max-width:900px) {
     .main{
         padding: 1rem;

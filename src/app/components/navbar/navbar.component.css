@@ -1,3 +1,4 @@
+
 .main_navbar{
     display: flex;
     padding: 1rem;
@@ -30,8 +31,12 @@
 .main_navbar .logo{
     flex: 2 2 ;
     height: 2rem;
-    border: 1px solid black;
-
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 500;
 }
 svg#logo{
     height: 2rem;
@@ -86,6 +91,27 @@ svg#textblock{
 }
 .shopping_cart ul {
     position: absolute;
+}
+.shopping_cart{
+    display: flex;
+    align-items: center;
+    height: 2rem;
+
+
+}
+.shopping_cart i{
+    position: relative;
+    font-size: 2rem;
+    display: block;
+}
+.shopping_cart  a span{
+    left:.5rem;
+    top: -1.2rem;
+    position: absolute;
+    padding: .6rem;
+    border-radius: 100vmax;
+    font-size: .8rem;
+    background-color: var(--secundary-mono);
 }
 @media screen and (max-width:750px) {
     .main_navbar{

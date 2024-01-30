@@ -1,7 +1,7 @@
 <li class="featured_item_container">
-    <a  href="">
-        <div class="featured_item_image"></div>
-        <h4 class="featured_item_title">Whaever Item</h4>
-        <p class="featured_item_price">$30.00</p>
+    <a routerLink="/{{itemCat}}/{{itemSub}}/{{itemName}}" routerLinkActive="active">
+        <div class="featured_item_image"  [ngStyle]="{'background-image':'url(data:image/png;base64,'+itemImage+')'}"></div>
+        <h4 class="featured_item_title">{{itemName}}</h4>
+        <p class="featured_item_price"><b>${{itemPrice}}</b></p>
     </a>
 </li>

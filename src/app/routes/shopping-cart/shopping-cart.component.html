@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar [itemsInCart]="currentCount" ></app-navbar>
 <main>
-    <app-items-summary></app-items-summary>
+    <app-items-summary (changetocart)="updateNav($event)" ></app-items-summary>
 </main>
 <app-footer></app-footer>

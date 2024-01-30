@@ -12,8 +12,21 @@ export class LoadUserInfoService {
 
    }
   loadAttributes():Observable<CurrentUser>{
-    return this.http.get<CurrentUser>("/api/userLoggedIn")
+    const stream = this.http.get<CurrentUser>("/api/userLoggedIn")
+    this.setUsernameLS(stream)
+    return stream
+
 
   }
-
+  setUsernameLS(stream : Observable<any>):void{
+    stream.subscribe((info)=>{
+      localStorage.setItem("username",info.username)
+    })
+    
+  }
+  isLoggedIn(){
+    const token = localStorage.getItem("authToken")
+    const username = localStorage.getItem("username")
+    return username
+  }
 }

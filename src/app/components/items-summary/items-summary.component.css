@@ -17,7 +17,28 @@
     list-style: none;
     padding: 2rem;
     border-bottom: 1px solid var(--font-fadded-hard);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
+.order-summary .item-order-summary button i{
+    font-size: 1.2rem;
+}
+.order-summary .item-order-summary button{
+    padding: .1rem;
+    background-color: transparent;
+    text-align: center;
+    height: 2rem;
+    border: none;
+    transition: all 150ms ease-in;
+    cursor: pointer;
+}
+.order-summary .item-order-summary button:focus, .order-summary .item-order-summary button:hover {
+    outline: none;
+    color: var(--error);
+}
+
 .item-order-summary div{
     display: flex;
 }
@@ -60,6 +81,7 @@
     height: 5rem;
     width: 5rem;
 }
+
 .form-error{
     position: absolute;
 }

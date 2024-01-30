@@ -1,0 +1,10 @@
+<li *ngIf="!removed" class="item-order-summary">
+    <div>
+        <div class="itemImg-order-summary" [ngStyle]="{'background-image':'url(data:image/png;base64,'+userInfo.img_path+')'}"></div>
+        <div class="itemInfo-order-summary">
+            <h5>{{userInfo.name}}</h5>
+            <span class="itemPrice-order-summary">${{userInfo.price}}<span class="itemQuantity-order-summary">x  01</span></span>
+ </div>
+</div>
+<button (click)="remove()" ><i class="fa-solid fa-trash-can"></i></button>
+</li>

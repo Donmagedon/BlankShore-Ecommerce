@@ -1,23 +1,23 @@
 <app-navbar></app-navbar>
-<main>
+<main *ngIf="user$ | async as user">
     <aside>
         <section class="profile-user">
-        <h3>Luiscar</h3>
+        <h3>{{user.username}}</h3>
         </section>
         <section  class="profile-details">
                 <ul>
-                    <a [routerLink]="['',{outlets:{display:'address'}}]" href="">
-                        <li>Addresses</li>
-                    </a><a [routerLink]="['',{outlets:{display:'personal'}}]" href="">
-                        <li>Personal Details</li>
+                    <a routerLink="address" href="">
+                        <li><i class="fa-solid fa-location-dot"></i>Addresses</li>
+                    </a><a routerLink="personal"  href="">
+                        <li><i class="fa-solid fa-user"></i>Personal Details</li>
                     </a><a href="">
-                        <li>Surprises</li>
+                        <li><i class="fa-solid fa-question"></i>Surprises</li>
                     </a>
                 </ul>
         </section>
      </aside>
      <section class="display">
-        <router-outlet name="display"></router-outlet>
+        <router-outlet></router-outlet>
         </section>
 </main>
 <app-footer></app-footer>

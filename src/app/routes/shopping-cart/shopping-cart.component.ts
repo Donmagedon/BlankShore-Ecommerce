@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-
+public currentCount! : number  
+  updateNav(e:number){
+    this.currentCount = e
+  }
 }

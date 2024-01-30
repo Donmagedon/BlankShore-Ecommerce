@@ -97,7 +97,12 @@ a .item-buy-now{
     border: 1px solid var(--font);
     background-color: white;
 }
-.item-add-cart:hover{
+.item-add-cart.added{
+    background-color: var(--secundary-mono);
+    border: 1px solid var(--secundary-mono);
+    cursor: initial;
+}
+.item-add-cart:hover:not(.added){
     background-color: var(--font);
     opacity: .70;
     color: white;

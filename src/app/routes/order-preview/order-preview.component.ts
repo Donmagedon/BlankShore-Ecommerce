@@ -1,11 +1,12 @@
 import { Component,OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { catchError, map } from 'rxjs';
 import { MiscellaneousDataService } from 'src/app/Services/miscellaneaous/miscellaneous-data.service';
 import { GetItemsService } from 'src/app/Services/get-items.service';
 import { Items } from 'src/app/models/items';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { LoadUserInfoService } from 'src/app/Services/load-user-info.service';
 @Component({
   selector: 'app-order-preview',
   templateUrl: './order-preview.component.html',
@@ -17,7 +18,9 @@ export class OrderPreviewComponent implements OnInit{
   public route!: any
   public identifier!: any
   public currentItem!: Items
-  constructor(private data: MiscellaneousDataService ,private theRoute: ActivatedRoute, private getItemService: GetItemsService){
+  public user!: boolean | null 
+
+  constructor(private data: MiscellaneousDataService ,private theRoute: ActivatedRoute, private getItemService: GetItemsService,private session : LoadUserInfoService,private auth : AuthenticationService){
   this.orderDetails = new FormGroup({
     firstName: new FormControl(null,[Validators.required]),
     lastName: new FormControl(null,[Validators.required]),
@@ -28,6 +31,19 @@ export class OrderPreviewComponent implements OnInit{
     postalCode: new FormControl(null,{})
 
   })
+  }
+
+  checkForUser(){
+    this.session.loadAttributes().pipe(catchError((err)=>{
+      if(err)
+      {
+        this.auth.logout()
+        this.user = null
+      }
+      throw err
+    }),map(()=>{
+    this.user = true
+    })).subscribe()    
   }
   get firstName():any {
     return this.orderDetails.get("firstName")
@@ -68,6 +84,7 @@ export class OrderPreviewComponent implements OnInit{
    })
   }
   ngOnInit(): void {
+    this.checkForUser()
     this.countriesData()
     this.theRoute.params.subscribe((data)=>{
       this.route = data["path"]

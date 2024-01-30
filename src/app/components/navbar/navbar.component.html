@@ -24,16 +24,16 @@
     <li><a href="" routerLink="/blog"  routerLinkActive="active">Blog</a></li>
     <li><a href="" routerLink="/contact" routerLinkActive="active">Contact</a></li>
 </ul>
-<span class="logo"> </span>
+<span class="logo">Blank Shore</span>
 <menu class="nav_menu">
-    <li><a *ngIf="user | async as user; else guest" href="">{{user.username}}</a><ng-template #guest> <a routerLink="/login" routerLinkActive="active">Log In</a></ng-template></li>
-    <li><a href="">Shops</a></li>
+    <li><a routerLink="/user" routerLinkActive="true" *ngIf="user; else guest" href="">{{user}}</a><ng-template #guest> <a routerLink="/login" routerLinkActive="active">Log In</a></ng-template></li>
+    <!-- <li><a href="">Shops</a></li> -->
 
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <!-- <i class="fa-solid fa-magnifying-glass fa-lg"></i> -->
     <div class="shopping_cart">
-        <i class="fa-solid fa-cart-shopping fa-xl"></i>
         
-        
+        <a href="" routerLink="/cart"><i class="fa-solid fa-cart-shopping fa-xl"><span *ngIf="itemsInCart">{{itemsInCart}}</span></i>
+        </a>
     </div>
     
 </menu>

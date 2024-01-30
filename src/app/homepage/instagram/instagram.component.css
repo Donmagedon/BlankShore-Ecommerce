@@ -1,15 +1,17 @@
  .instagram_container{
     width: 100%;
     min-height: 100dvh;
+    padding: 2rem;
  }
 
 .instagram_container a{
     display: flex;
     min-height: 100dvh;
-    align-items: center;
-    justify-content: center;
     text-decoration: none;
     color: var(--font);
+    
+    justify-content: center;
+    align-items: center;
 
 }
 .instagram_container .pics{
@@ -31,12 +33,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1 1;
 }
 .middle_collection{
     flex-direction: column;
     justify-content: space-between;
 
+}
+.side1_collection, .side2_collection{
 }
 .middle_collection h2{
     margin-top: 8rem;
@@ -63,8 +66,12 @@
     background-image: url("../../../assets/media/pictures/Bougie-parfumée-pour-l_hiver-_-notre-shopping.jpg");
 }
 
-@media (max-width:800px) {
+@media (max-width:1020px) {
     .instagram_container a{
         flex-direction: column;
+    }
+    .instagram_container .pics{
+        width: 15rem;
+        height: 15rem;
     }
 }

@@ -1,6 +1,12 @@
-<section class="featured_container">
+<section *ngIf="featureItem" class="featured_container">
     <h2>Featured Collections</h2>
     <ul>
-        <app-products-demonstrate></app-products-demonstrate>
+        <app-products-demonstrate
+        [itemName]="featureItem.name"
+        [itemImage]="featureItem.img_path"
+        [itemPrice]="featureItem.price"
+        [itemSub]="featureItem.sub_category"
+        [itemCat]="featureItem.category"
+        ></app-products-demonstrate>
     </ul>
 </section>

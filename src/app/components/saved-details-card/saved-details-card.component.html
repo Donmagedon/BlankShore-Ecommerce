@@ -1,10 +1,10 @@
-<article *ngIf="!editing">
+<article *ngIf="currentUser$ | async as user" >
     <main>
         <ul>
-            <li class="first-name"><span>First Name:</span>Luiscar</li>
-            <li class="last-name"><span>Last Name:</span>Castro</li>
-            <li class="username"><span>Username:</span>donmagedon</li>
-            <li class="favorite-song"><span>Favorite Song:</span>Butterflies and Hurricanes</li>
+            <li class="first-name"><span>First Name:</span>{{user.first_name}}</li>
+            <li class="last-name"><span>Last Name:</span>{{user.last_name}}</li>
+            <li class="username"><span>Username:</span>{{user.username}}</li>
+            <li class="favorite-song"><span>Favorite Song:</span>{{user.favorite_song}}</li>
         </ul>
     </main>
     <button  (mouseleave)="hideOptions()" (click)="display()" class="options-button"><i class="fa-solid fa-ellipsis-vertical"></i>
@@ -13,6 +13,3 @@
         </ul>
     </button>
 </article>
-<div *ngIf="editing">
-    <app-add-personal-details-form></app-add-personal-details-form>
-</div>
